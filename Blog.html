@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroTech</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: url('Blog_BG.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+#info-text-box {
+    color: #000;
+    border-radius: 8px;
+    padding: 20px;
+    width: 1100px; 
+    height: 700px; 
+    overflow-y: auto; 
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.inner-text-box {
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px; 
+    width: 100%; 
+    height: 400px; 
+    overflow-y: auto; 
+    -webkit-backdrop-filter: blur(80px);
+    backdrop-filter: blur(80px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 100%;
+    background: transparent;
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px);
+    border-right: 2px solid rgba(255, 255, 255, .2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    padding: 6px 14px;
+    transition: .5s;
+}
+
+.sidebar.active {
+    width: 260px;
+}
+
+.sidebar .logo-menu {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+}
+
+.sidebar .logo-menu .logo {
+    font-size: 25px;
+    color: #fff;
+    pointer-events: none;
+    opacity: 0;
+    transition: .3s;
+}
+
+.sidebar.active .logo-menu .logo {
+    opacity: 1;
+    transition-delay: .2s;
+}
+
+.sidebar .logo-menu .toggle-btn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.sidebar.active .logo-menu .toggle-btn {
+    left: 90%;
+}
+
+.sidebar .list {
+    margin-top: 10px;
+}
+
+
+.list .list-item {
+    list-style: none;
+    width: 100%;
+    height: 50px;
+    margin: 5px 0;
+    line-height: 50px;
+}
+
+.list .list-item a {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color : #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: .5s;
+}
+
+.list .list-item.active a,
+.list .list-item a:hover{
+    background: rgba(255, 255, 255, .2);
+}
+
+.list .list-item a i {
+    min-width: 50px;
+    height: 50 px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.sidebar .link-name {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s;
+}
+
+.sidebar.active .link-name {
+    opacity: 1;
+    pointer-events: auto;
+
+}
+
+</style>
+</head>
+
+<body>
+    <nav class = "sidebar">
+        <div class="logo-menu">
+            <h2 class="logo">AGROTECH</h2>
+            <i class='bx bx-menu toggle-btn'></i>
+        </div>
+        <ul class = "list">
+            <li class = "list-item">
+                <a href = "#">
+                    <p onclick="openOtherPage('News.html')">
+                    <i class = 'bx bx-news'></i>
+                    </p>
+                    <span class = "link-name"><p onclick="openOtherPage('News.html')">News</p></span>
+                </a>
+            </li>
+            <li class = "list-item">
+                <a href = "#">
+                    <p onclick="openOtherPage('OurTechnology.html')"><i class = 'bx bxl-netlify'></i></p>
+                    <span class = "link-name"><p onclick="openOtherPage('OurTechnology.html')">Our Technology</p></span>
+                </a>
+            </li>
+            <li class = "list-item">
+                <a href = "#">
+                    <p onclick="openOtherPage('Track.html')">
+                    <i class = 'bx bx-file-find'></i>
+                    </p>
+                    <span class = "link-name"><p onclick="openOtherPage('Track.html')">Track</p></span>
+                </a>
+            </li>
+            <li class = "list-item">
+                <a href = "#">
+                    <p onclick="openOtherPage('Global Expansion.html')">
+                    <i class = 'bx bx-globe'></i>
+                    </p>
+                    <span class = "link-name"><p onclick="openOtherPage('Global Expansion.html')">Global Expansion</p></span>
+                </a>
+            </li>
+            <li class = "list-item">
+                <a href = "#">
+                    <p onclick="openOtherPage('John Deere.html')">
+                    <i class = 'bx bxs-leaf'></i>
+                </p>
+                    <span class = "link-name"><p onclick="openOtherPage('John Deere.html')">John Deere</p></span>
+                </a>
+            </li>
+            <li class = "list-item active">
+                <a href = "#">
+                    <p onclick="openOtherPage('Blog.html')">
+                    <i class = 'bx bxl-blogger'></i>
+                    </p>
+                    <span class = "link-name"><p onclick="openOtherPage('Blog.html')">Blog</p></span>
+                </a>
+            </li>
+            <li class = "list-item">
+                <a href = "#">
+                    <p onclick="openOtherPage('Contact.html')">
+                    <i class = 'bx bx-user'></i>
+                    </p>
+                    <span class = "link-name"><p onclick="openOtherPage('Contact.html')">Contact</p></span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div id="info-text-box">
+        <div class="inner-text-box">
+            <b>Blog 1: The Future of Agriculture: How Precision Agriculture is Changing the Game
+                introduction:
+                </b>
+            <br><br>
+            <i><b><u>Introduction:</u></b></i><br>
+
+    Agriculture is undergoing major changes at this time as technology affects every aspect of our lives. Precision agriculture, an agricultural management approach that uses information technology and various tools such as GPS navigation, control systems, sensors, robots, drones, autonomous vehicles, variable rate technologies etc. is more than trending this agricultural system leading to this transformation It represents a future that promises to make agriculture more equitable, efficient and sustainable.
+
+<br><br>
+
+<i><b><u>Advanced Precision Agriculture:</u></b></i><br>
+Precision farming emerged in response to increasing production needs, resource scarcity and growing concerns about environmental sustainability When agricultural methods are affected by new technologies apart from conventional practices, precision farming allows farmers to monitor, measure and respond to changes in crop and soil conditions with incredible accuracy
+<br><br>
+
+<i><b><u>How It Works:</u></b></i><br>
+Precision agriculture revolves around massive data collection and analysis from sources such as satellite imagery, soil samples and field sensors and then using this data to optimize agricultural practices in real time in, such as a pram calculating the exact amount of water needed in different areas
+
+<br><br>
+<i><b><u>Benefits for farmers:</u></b></i><br>
+The benefits of precision farming are numerous. Allowing farmers to use resources more efficiently not only increases crop yields and quality, but also reduces the impact of agricultural activities on the environment All farmers are looking for new options for them the crops and their land have flourished, with great profit and prosperity
+<br><br>
+<i><b><u>Future and Present:</u></b></i><br>
+A future of precision agriculture holds endless possibilities. Increasing advances in technology and research are providing the next generation of farmers with tools and insights that were unimaginable just a few decades ago. Combining artificial intelligence and machine learning with precision farming also promises significant savings through automated decision-making and streamlining of farm operations that reduce some weeds are raised to improve efficiency
+<br><br>
+
+<i><b><u>Conclusion:</u></b></i><br>
+Precision farming: We changed the field. Farmers can meet today’s challenges by leveraging technology and information, and assuring food security and sustainability for future generations. The importance of adopting this technology moving forward cannot be stressed enough. The future of agriculture is now, and that’s perfect.
+        </div>
+        <div class="inner-text-box">
+            <b>Blog 2: Bridging the Gap: How Satellite Technology is Revolutionizing Soil Management
+</b><br><br><i><b><u>Introduction:</u></b></i><br>
+Soil is the cornerstone of agriculture, the basic fabric of food production that ensures the health of our planet and its inhabitants. In recent years, satellite technology has emerged as a game changer in soil management, providing new insights into soil health and fertilization. This technology advancement enables farmers all over the world to make informed decisions that increase yield while protecting our most valuable resource: the earth itself.
+<br><br>
+<i><b><u>The Power of Satellite Imagery:</u></b></i><br>
+Satellite technology offers a bird's-eye perspective of farms, providing vital information on soil moisture levels, nutrient content, and overall health. This high-resolution photography enables exact monitoring of large areas, allowing concerns to be identified before they become a problem and soil management approaches to be tailored to each plot's individual needs.
+<br><br>
+<i><b><u>Transforming Soil Management:</u></b></i><br>
+Farmers that have access to accurate, real-time soil information can better manage irrigation schedules, apply fertilizer, and implement conservation strategies. Satellite technology not only improves operational efficiency, but it also promotes sustainable farming methods by lowering runoff and minimizing environmental effect.
+<br><br>
+<i><b><u>The Benefits Are Clear:</u></b></i><br>
+The advantages of satellite-based soil management are numerous. Improved soil health contributes to higher crop yields and higher-quality produce, whereas sustainable techniques assure the long-term viability of agricultural land. Furthermore, by lowering their reliance on water and chemical inputs, farmers may reduce costs and boost profitability while also contributing to the health of the world.
+<br><br>
+<i><b><u>Looking Ahead:</u></b></i><br>
+As satellite technology advances, its uses in agriculture will only grow. Future advancements may include more precise soil and crop health monitoring, predictive analytics for crop diseases, and automated farming operations. The potential for innovation is enormous, pointing to a future in which satellite technology and soil management work in tandem.
+<br><br>
+<i><b><u>Conclusion:</u></b></i><br>
+Satellite technology is transforming how we understand and manage soil, bridging the gap between traditional farming practices and the future of agriculture. This technology not only improves farming sustainability and profitability by giving farmers the tools they need to optimize soil health and crop output, but it also ensures our planet's well-being for future generations. As we continue to investigate the possibilities, one thing becomes clear: the future of soil management looks promising.
+
+</div>
+
+    </div>
+    <script src="script.js"></script>
+    <script>
+        function openOtherPage(filename) {
+          window.location.href = filename; // Use window.location.href for same tab
+        }
+      </script>
+</body>
+</html>
+

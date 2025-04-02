@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Menu using HTML and CSS | AgriTech</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: url('GlobalExpansion_BG.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 100%;
+    background: transparent;
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px);
+    border-right: 2px solid rgba(255, 255, 255, .2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    padding: 6px 14px;
+    transition: .5s;
+}
+
+#info-text-box {
+    color: #000;
+    border-radius: 8px;
+    padding: 20px;
+    width: 1290px;
+    height: 700px;
+    overflow-y: auto;
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+.sidebar.active {
+    width: 260px;
+}
+
+.sidebar .logo-menu {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+}
+
+.sidebar .logo-menu .logo {
+    font-size: 25px;
+    color: #fff;
+    pointer-events: none;
+    opacity: 0;
+    transition: .3s;
+}
+
+.sidebar.active .logo-menu .logo {
+    opacity: 1;
+    transition-delay: .2s;
+}
+
+.sidebar .logo-menu .toggle-btn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.sidebar.active .logo-menu .toggle-btn {
+    left: 90%;
+}
+
+.sidebar .list {
+    margin-top: 10px;
+}
+
+
+.list .list-item {
+    list-style: none;
+    width: 100%;
+    height: 50px;
+    margin: 5px 0;
+    line-height: 50px;
+}
+
+.list .list-item a {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color : #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: .5s;
+}
+
+.list .list-item.active a,
+.list .list-item a:hover{
+    background: rgba(255, 255, 255, .2);
+}
+
+.list .list-item a i {
+    min-width: 50px;
+    height: 50 px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.sidebar .link-name {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s;
+}
+
+.sidebar.active .link-name {
+    opacity: 1;
+    pointer-events: auto;
+
+}
+</style>
+    </head>
+    <body>
+        <nav class = "sidebar">
+        <div class="logo-menu">
+            <h2 class="logo">AGROTECH</h2>
+            <i class='bx bx-menu toggle-btn'></i>
+        </div>
+        <ul class = "list">
+            <li class = "list-item">
+                <a href = "#">
+                    <p onclick="openOtherPage('News.html')">
+                    <i class = 'bx bx-news'></i>
+                    </p>
+                    <span class = "link-name"><p onclick="openOtherPage('News.html')">News</p></span>
+                </a>
+            </li>
+            <li class = "list-item">
+                <a href = "#">
+                    <p onclick="openOtherPage('OurTechnology.html')"><i class = 'bx bxl-netlify'></i></p>
+                    <span class = "link-name"><p onclick="openOtherPage('OurTechnology.html')">Our Technology</p></span>
+                </a>
+            </li>
+            <li class = "list-item">
+                <a href = "#">
+                    <p onclick="openOtherPage('Track.html')">
+                    <i class = 'bx bx-file-find'></i>
+                    </p>
+                    <span class = "link-name"><p onclick="openOtherPage('Track.html')">Track</p></span>
+                </a>
+            </li>
+            <li class = "list-item active">
+                <a href = "#">
+                    <p onclick="openOtherPage('Global Expansion.html')">
+                    <i class = 'bx bx-globe'></i>
+                    </p>
+                    <span class = "link-name"><p onclick="openOtherPage('Global Expansion.html')">Global Expansion</p></span>
+                </a>
+            </li>
+            <li class = "list-item">
+                <a href = "#">
+                    <p onclick="openOtherPage('John Deere.html')">
+                    <i class = 'bx bxs-leaf'></i>
+                </p>
+                    <span class = "link-name"><p onclick="openOtherPage('John Deere.html')">John Deere</p></span>
+                </a>
+            </li>
+            <li class = "list-item">
+                <a href = "#">
+                    <p onclick="openOtherPage('Blog.html')">
+                    <i class = 'bx bxl-blogger'></i>
+                    </p>
+                    <span class = "link-name"><p onclick="openOtherPage('Blog.html')">Blog</p></span>
+                </a>
+            </li>
+            <li class = "list-item">
+                <a href = "#">
+                    <p onclick="openOtherPage('Contact.html')">
+                    <i class = 'bx bx-user'></i>
+                    </p>
+                    <span class = "link-name"><p onclick="openOtherPage('Contact.html')">Contact</p></span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div id="info-text-box">
+        <big>O</big>ur objective is to convert global agriculture with our superior technology platform, which integrates satellite tv for pc imagery evaluation, precision farming equipment, and actual-time tracking competencies. As a part of our strategic vision, we are happy to announce our plans for international growth, which searching for to offer farmers global with the gear they need to enhance productiveness, sustainability, and profitability. Here's an define of our method for bringing precision agriculture to farmers on a couple of continents.
+<br><br>
+<b>Phase 1: Establishing Key Partnerships</b>
+<br>
+<i><u>Collaboration with Local Agricultural Authorities: </u></i> To guarantee that our solutions cope with the specific needs of each vicinity, we can paintings with nearby agricultural authorities and research institutions. These collaborations will assist us alter our era to nearby crop sorts, soil situations, and farming techniques.
+Strategic alliances with agribusiness: By growing connections with neighborhood agribusinesses, which includes providers of seeds, fertilizers, and farming gadget, we will incorporate our generation into current agricultural ecosystems, allowing farmers to undertake it more smoothly.
+
+<br><br>
+<b>> Phase 2: Customizing Solutions for Local Markets</b><br>
+<i><u>Adaptation to Local Crops and conditions: </u></i>Recognizing the variety of agricultural practices and problems throughout areas, we will tailor our technological platform to house a extensive variety of vegetation and precise environmental circumstances, assuring relevance and efficacy.
+
+<br><br>
+<i><u>Language and Cultural Considerations:</u></i> Our platforms and gear will be localized to accommodate language and cultural possibilities, making our generation more on hand and user-pleasant to farmers in the course of the sector.
+
+<br><br>
+<b>> Phase 3: Scaling Through Education and Support
+</b><br>
+<i><u>Training Programs for Farmers:</u></i> In order to maximize the effect of our era, we can launch complete farmer training applications. Workshops, on line schooling, and on-the-floor assist might be provided to make certain farmers are properly-equipped to efficiently use our generation.
+<br><br>
+<i><u>Continuous Support and Feedback Loops: </u></i>Our commitment to farmers goes past the initial deployment. We will set up a continuous support system, entire with a feedback loop to seize consumer insights. This will permit us to constantly tweak and enhance our offerings.
+<b> Phase 4: Leveraging Data for Global Insights</b><br>
+<i><u>Global Agricultural Data Hub:</u></i>By aggregating data from our operations worldwide, we will create a rich hub of agricultural data. This resource will offer invaluable insights into global agricultural trends, crop performance, and best practices, benefiting the wider farming community.
+
+<i><u>Innovative Research and Development: </u></i> Utilizing the global data collected, our R&D team will focus on developing new features, too
+ls, and technologies that address emerging agricultural challenges, driving further innovation in the sector.
+
+<br><br>
+<b>Looking Forward</b><br><br>
+As we embark on this global expansion, our goal is to make precision agriculture not just a possibility but a reality for farmers everywhere, regardless of the size of their operations or their location. We believe that by providing access to our cutting-edge technology, we can help create a more sustainable, efficient, and productive global food system.
+<br><br>
+Our journey is just beginning, and we are committed to working closely with communities, governments, and industry partners worldwide to realize the full potential of precision agriculture. Together, we can transform the future of farming, ensuring food security and environmental sustainability for generations to come.
+
+<br><br>
+
+</div>
+<script src="script.js"></script>
+    <script>
+        function openOtherPage(filename) {
+          window.location.href = filename; // Use window.location.href for same tab
+        }
+      </script>
+    </body>
+</html>
