@@ -3,6 +3,7 @@
     "parcel": "^2.14.4"
   },
 "scripts":{
-  "dev": "parcel GetStarted.html"
+  "dev": "parcel GetStarted.html",
+  "build": "parcel build GetStarted.html"
 }
 }
